@@ -1,9 +1,6 @@
 import { wrapper } from "../../store/store";
 
 import Grid from "@mui/material/Grid";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getEmployeeDetails } from "../../store/actions";
 import { map } from "lodash";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -15,19 +12,12 @@ import { Actions } from "../../components/actions";
 import getGender from "../../utill";
 
 function EmployeeList({ employeeData }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    (async () => {
-      await dispatch(getEmployeeDetails());
-    })();
-  }, []);
-
   return (
-    <Grid container spacing={2}>
-      {map(employeeData.employees, (data) => {
+    <Grid  container spacing={2}>
+      {map(employeeData.employees, (data,index) => {
         return (
-          <Grid item xs={4}>
-            <div key={data.id}>
+          <Grid key={index} item xs={4}>
+            <div>
               <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                   <CardMedia

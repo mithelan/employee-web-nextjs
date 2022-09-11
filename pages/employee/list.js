@@ -1,5 +1,5 @@
 import { wrapper } from "../../store/store";
-import {useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getEmployeeDetails } from "../../store/actions";
 import EmployeeTable from "./table";
@@ -11,11 +11,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { Loader } from "../../components/loader";
 import TextField from "@mui/material/TextField";
+import {Loader} from "../../components/loader";
 
 function List(data) {
-let {employeeData}=data;
+  let { employeeData } = data;
   const [view, setView] = useState(true);
   const [gender, setGender] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -37,7 +37,6 @@ let {employeeData}=data;
   return (
     <>
       <TextField
-        // helperText="Search"
         size="small"
         id="demo-helper-text-aligned"
         label="Search"
@@ -48,7 +47,7 @@ let {employeeData}=data;
         className="mr-2"
       />
 
-      <FormControl sx={{ minWidth: 120 }}  size="small">
+      <FormControl sx={{ minWidth: 120 }} size="small">
         <InputLabel id="demo-select-small">Gender</InputLabel>
         <Select
           labelId="demo-select-small"
@@ -73,7 +72,7 @@ let {employeeData}=data;
             <button className="btn btn-primary mr-3">Add Employee</button>
           </a>
         </div>
-      )  : (
+      ) : (
         <div className="card m-3" data-testid="grid-view">
           <div className="d-flex flex-row-reverse mt-2">
             <button className="btn btn-primary mr-3" onClick={handleClick}>
@@ -88,13 +87,17 @@ let {employeeData}=data;
               <button className="btn btn-primary mr-3">Add Employee</button>
             </a>
           </div>
+              {employeeData.employeesDataLoading ?
+      <Loader/>
+    : 
           <div className="form-row m-3">
             {view ? (
-              <EmployeesList employeeData={employeeData}  />
+              <EmployeesList employeeData={employeeData} />
             ) : (
-              <EmployeeTable employeeData={employeeData}  />
+              <EmployeeTable employeeData={employeeData} />
             )}
           </div>
+}
         </div>
       )}
     </>

@@ -1,10 +1,10 @@
+import React, { useEffect } from "react";
 import { wrapper } from "../../store/store";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEmployeeDetails } from "../../store/actions";
 import List from "./list";
 
-function EmployeeDetails({ Component, pageProps }) {
+function EmployeeDetails() {
   const employeeData = useSelector((state) => state.employees);
   const dispatch = useDispatch();
 
@@ -13,8 +13,11 @@ function EmployeeDetails({ Component, pageProps }) {
   }, []);
 
   return (
-   <List employeeData={employeeData} />
+    <>
+      <List employeeData={employeeData} />
+    </>
   );
 }
 
 export default wrapper.withRedux(EmployeeDetails);
+
