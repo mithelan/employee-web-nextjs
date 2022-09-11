@@ -1,0 +1,15 @@
+{
+  "employees": [
+    {
+      "createdAt": "2022-09-09T11:03:23.000Z",
+      "email": "cdn-admin@arts.nsw.gov.au",
+      "firstName": "John Mike",
+      "gender": "M",
+      "id": 1,
+      "lastName": "Ferandna",
+      "phone": "947782887781",
+      "photo": "https://images.unsplash.com/photo-1590098391939-421c32ce7095?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=80",
+      "updatedAt": "2022-09-09T11:03:23.000Z"
+    }
+  ]
+}
