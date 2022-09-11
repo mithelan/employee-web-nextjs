@@ -38,15 +38,17 @@ let {employeeData}=data;
     <>
       <TextField
         // helperText="Search"
+        size="small"
         id="demo-helper-text-aligned"
         label="Search"
         onChange={debounce((e, obj) => handleInputChange(e), 500, {
           leading: true,
         })}
         data-testid="search-field"
+        className="mr-2"
       />
 
-      <FormControl sx={{ m: 1, minWidth: 120, minHeight: 30 }} size="small">
+      <FormControl sx={{ minWidth: 120 }}  size="small">
         <InputLabel id="demo-select-small">Gender</InputLabel>
         <Select
           labelId="demo-select-small"

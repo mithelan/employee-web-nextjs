@@ -46,7 +46,7 @@ export function getEmployeeDetails(gender="",keyword="") {
         keyword:keyword
       }
       dispatch({ type: GET_EMPLOYEE_DATA_LOADING, payload: true });
-      const response = await axios.get(`http://localhost:8000/api/all-employees`,{
+      const response = await axios.get(`/all-employees`,{
         params,
       });
       dispatch({ type: GET_EMPLOYEE_DATA, payload: response.data });
@@ -63,7 +63,7 @@ export function createEmployee(data) {
     return new Promise(async (resolve, reject) => {
     try {
       dispatch({ type: ADD_EMPLOYEE_LOADING, payload: true });
-      const response = await axios.post(`http://localhost:8000/api/add-employee`,data);
+      const response = await axios.post(`/add-employee`,data);
       authMsg('success', [
         'Employee Successfully Added',
         'Employee Info',
@@ -81,7 +81,7 @@ export function createEmployee(data) {
 export function updateEmployeeData(values,id) {
   return async dispatch => {
     try {
-      const response = await axios.put(`http://localhost:8000/api/update-employee/${id}`,values);
+      const response = await axios.put(`/update-employee/${id}`,values);
       dispatch({ type: UPDATE_EMPLOYEE_DATA, payload: response.data });
       authMsg('success', [
         'Employee Successfully Updated',
@@ -99,7 +99,7 @@ export function deleteEmployeeData(id) {
   return async dispatch => {
     try {
       dispatch({ type: DELETE_EMPLOYEE_LOADING, payload: true });
-      const response = await axios.delete(`http://localhost:8000/api/delete/${id}`);
+      const response = await axios.delete(`/delete/${id}`);
       dispatch({ type: DELETE_EMPLOYEE_LOADING, payload: false });
       await dispatch(getEmployeeDetails())
     } catch (error) {
